@@ -1,4 +1,4 @@
-BabyDev
+BabyDev - MVC Application
 =======
 
-Сайт за развитието на вашето бебе.
+Site for tracking your baby's development.
