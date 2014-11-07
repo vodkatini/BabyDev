@@ -10,9 +10,6 @@ namespace BabyDev.Web.Controllers
 {
     public class BaseController : Controller
     {
-        public BaseController()
-        {
-        }
 
         public BaseController(IBabyDevData data)
         {

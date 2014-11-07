@@ -1,16 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using BabyDev.Models;
+using BabyDev.Web.ViewModels;
 
 namespace BabyDev.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+
+    using BabyDev.Data.Contracts;
+    
+
+    using AutoMapper.QueryableExtensions;
+
     public class HomeController : BaseController
     {
+        public HomeController(IBabyDevData data) 
+            : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var topics = this.Data.Topics.All().Project().To<TopicViewModel>().First();
+            return View(topics);
         }
 
         public ActionResult About()

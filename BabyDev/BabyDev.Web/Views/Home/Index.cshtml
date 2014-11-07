@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model BabyDev.Web.ViewModels.TopicViewModel
+@{
+    ViewBag.Title = "Home Page"; 
 }
 
 <div class="jumbotron">
@@ -10,9 +11,9 @@
 <div class="row">
     <div class="col-md-4">
         <h2>Latest Topics</h2>
-        <p>
-            Model Story Here
-        </p>
+        
+            <h4>@Model.Title</h4>
+        
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
 </div>
