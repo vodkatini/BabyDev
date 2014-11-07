@@ -25,7 +25,11 @@ namespace BabyDev.Web.Controllers
 
         public ActionResult Index()
         {
-            var topics = this.Data.Topics.All().Project().To<TopicViewModel>().First();
+            var topics = this.Data.Topics.All()
+                .Project()
+                .To<TopicViewModel>()
+                .Take(5)
+                .ToList();
             return View(topics);
         }
 
