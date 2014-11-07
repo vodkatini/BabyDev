@@ -1,4 +1,6 @@
-﻿namespace BabyDev.Models
+﻿using System.Collections.Generic;
+
+namespace BabyDev.Models
 {
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -8,6 +10,13 @@
 
     public class BabyDevUser : IdentityUser
     {
+        public BabyDevUser()
+        {
+            this.Children = new HashSet<Child>();
+        }
+
+        public virtual ICollection<Child> Children { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<BabyDevUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

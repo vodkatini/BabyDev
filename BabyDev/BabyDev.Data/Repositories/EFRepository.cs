@@ -3,6 +3,8 @@
     using System.Data.Entity;
     using System.Linq;
 
+    using BabyDev.Data.Contracts;
+
     public class EFRepository<T> : IRepository<T> where T : class
     {
         private DbContext context;

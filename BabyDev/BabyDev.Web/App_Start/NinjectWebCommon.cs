@@ -1,5 +1,3 @@
-using BabyDev.Data;
-
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(BabyDev.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(BabyDev.Web.App_Start.NinjectWebCommon), "Stop")]
 
@@ -12,6 +10,9 @@ namespace BabyDev.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+
+    using BabyDev.Data;
+    using BabyDev.Data.Contracts;
 
     public static class NinjectWebCommon 
     {
