@@ -39,7 +39,9 @@
                             @output
                         </p>                        
                     }
-                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+                    <p>
+                        @Html.ActionLink("Read", "Details", new { @id = topic.Id }, new { @class = "btn btn-default" })
+                    </p>
                 </div>
             }
         </div>

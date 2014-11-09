@@ -1,7 +1,4 @@
-﻿using BabyDev.Models;
-using BabyDev.Web.ViewModels;
-
-namespace BabyDev.Web.Controllers
+﻿namespace BabyDev.Web.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -12,9 +9,8 @@ namespace BabyDev.Web.Controllers
     using AutoMapper.QueryableExtensions;
 
     using BabyDev.Data.Contracts;
-    
-
-    using AutoMapper.QueryableExtensions;
+    using BabyDev.Models;
+    using BabyDev.Web.ViewModels;
 
     public class HomeController : BaseController
     {
@@ -26,6 +22,7 @@ namespace BabyDev.Web.Controllers
         public ActionResult Index()
         {
             var topics = this.Data.Topics.All()
+                .OrderByDescending(t => t.CreatedOn)
                 .Project()
                 .To<TopicViewModel>()
                 .Take(5)
@@ -35,16 +32,25 @@ namespace BabyDev.Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact us";
 
             return View();
+        }
+
+        public ActionResult Details(int id)
+        {
+            var topic = this.Data.Topics.All()
+                .Project()
+                .To<TopicViewModel>()
+                .First(t => t.Id == id);
+            return View(topic);
         }
     }
 }
