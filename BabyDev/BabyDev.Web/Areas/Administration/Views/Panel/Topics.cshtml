@@ -1,5 +1,12 @@
 ﻿@using BabyDev.Web.Areas.Administration.ViewModels
-@model BabyDev.Web.Areas.Administration.ViewModels.TopicViewModel
+@model TopicViewModel
+           
+@{
+    ViewBag.Title = "Topics";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+
+
 <h2>Topics</h2>
 
 @(Html.Kendo().Grid<TopicViewModel>()
@@ -13,14 +20,14 @@
 .DataSource(data =>
 {
     data.Ajax()
-    .Model(m => m.Id(h => h.Id))
+    .Model(m => m.Id(t => t.Id))
     .PageSize(10)
     .ServerOperation(true)
-    .Read(read => read.Action("Read", "Specialists").Data("sendAntiForgery"))
-    .Update(up => up.Action("Update", "Specialists").Data("sendAntiForgery"))
-    .Destroy(del => del.Action("Delete", "Specialists").Data("sendAntiForgery"))
-    .Create(create => create.Action("Create", "Specialists").Data("sendAntiForgery"))
-    .Events(events => events.Sync("sync_handler"));
+    .Read(read => read.Action("Read", "Topics"))
+    .Update(up => up.Action("Update", "Specialists"))
+    .Destroy(del => del.Action("Delete", "Specialists"))
+    .Create(create => create.Action("Create", "Specialists"))
+    ;
 }
 )
 .Sortable()

@@ -8,13 +8,21 @@ namespace BabyDev.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.IgnoreList.Clear();
 
+
+            RegisterStyleBundles(bundles);
+            RegisterScriptBundles(bundles);
+
+            BundleTable.EnableOptimizations = false;
+        }
+
+        private static void RegisterScriptBundles(BundleCollection bundles)
+        {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/Kendo/jquery.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
-                "~/Scripts/Kendo/kendo.web.min.js",
+                "~/Scripts/Kendo/kendo.all.min.js",
                 "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
 
 
@@ -29,15 +37,20 @@ namespace BabyDev.Web
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
+        }
 
+        private static void RegisterStyleBundles(BundleCollection bundles)
+        {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/bootstrap.journal.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.journal.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
-                      "~/Content/Kendo/kendo.common.*",
-                      "~/Content/Kendo/kendo.default.*"));
+                      "~/Content/Kendo/kendo.common.min.css",
+                      "~/Content/Kendo/kendo.common-bootstrap.min.css",
+                      "~/Content/Kendo/kendo.default.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/custom").Include(
+                      "~/Content/Site.css"));
         }
     }
 }

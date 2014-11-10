@@ -7,8 +7,9 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-    @Styles.Render("~/Content/kendo")
-    @Scripts.Render("~/bundles/kendo")
+    @RenderSection("styles", required: false)
+    @Styles.Render("~/Content/custom")
+
     <meta name="description" content="The description of my page" />
 </head>
 <body>

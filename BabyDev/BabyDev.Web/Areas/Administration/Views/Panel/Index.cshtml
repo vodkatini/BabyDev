@@ -1,7 +1,12 @@
-﻿<div class="container">
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
     <h2>Admininstration Panel</h2>
     <div class="well">
         @Html.ActionLink("Topics", "Topics")
     </div>
 </div>
-

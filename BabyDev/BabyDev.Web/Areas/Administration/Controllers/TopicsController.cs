@@ -1,4 +1,9 @@
-﻿namespace BabyDev.Web.Areas.Administration.Controllers
+﻿using System.Linq;
+using AutoMapper.QueryableExtensions;
+using BabyDev.Web.Areas.Administration.ViewModels;
+using Kendo.Mvc.Extensions;
+
+namespace BabyDev.Web.Areas.Administration.Controllers
 {
     using System.Web.Mvc;
     using BabyDev.Data.Contracts;
@@ -11,9 +16,12 @@
         {
         }
 
-        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
+        public JsonResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            return View();
+            var result = this.Data.Topics.All().AsQueryable()
+            .Project()
+            .To<TopicViewModel>();
+            return this.Json(result.ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
         }
     }
 }
