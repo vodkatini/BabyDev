@@ -234,9 +234,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Child\Views\web.config" />
-    <Content Include="Areas\Child\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Child\Views\Profile\Index.cshtml" />
     <Content Include="Areas\Child\Views\Profile\Add.cshtml" />
+    <Content Include="Areas\Child\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

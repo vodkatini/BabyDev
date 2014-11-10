@@ -19,33 +19,31 @@ namespace BabyDev.Web.Areas.Child.Controllers
         {
         }
         // GET: Child/Profile
-        public ActionResult Index()
+        public ActionResult Index(int? relatedMonths)
         {
             if (TempData["success"] != null)
             {
                 return View(TempData["success"]);
             }
 
-            var userId = this.User.Identity.GetUserId();
-            var child = this.Data.Children.All().FirstOrDefault(c => c.ParentId == userId);
-            if (child == null)
+            if (relatedMonths == null)
             {
-                return RedirectToAction("Add");
+                var userId = this.User.Identity.GetUserId();
+                var child = this.Data.Children.All().FirstOrDefault(c => c.ParentId == userId);
+
+                if (child == null)
+                {
+                    return RedirectToAction("Add");
+                }
+                relatedMonths = (DateTime.Now - child.Born).Days / 30;
             }
-            var relatedMonths = (DateTime.Now - child.Born).Days/30;
+
             var topic = this.Data.Topics.All().First(t => t.RelatedMonths == relatedMonths);
 
             var topicViewModel = new TopicViewModel()
             {
                 Title = topic.Title,
                 Paragraphs = topic.Paragraphs
-            };
-
-            var childViewModel = new ChildViewModel()
-            {
-                Name = child.Name,
-                Born = child.Born,
-                Gender = child.Gender
             };
 
             return View(topicViewModel);

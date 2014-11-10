@@ -1,4 +1,11 @@
 ﻿@model BabyDev.Web.ViewModels.TopicViewModel
 <h1>Index Child</h1>
-<h2>@Model.Title</h2>
+@Html.ActionLink("Prev", "Index", new { relatedMonths = Model.RealtedMonths - 1})
+@Html.LabelFor(m => m.Title)
+@Html.ActionLink("Next", "Index", new { relatedMonths = Model.RealtedMonths + 1})
+@foreach (var paragraph in Model.Paragraphs)
+{
+    <h4>@paragraph.Subtitle</h4>
+    <p>@paragraph.Content</p>
+}
 
