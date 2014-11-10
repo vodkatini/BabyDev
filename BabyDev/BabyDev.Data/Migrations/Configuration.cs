@@ -21,7 +21,7 @@ namespace BabyDev.Data.Migrations
 
         protected override void Seed(BabyDevDbContext context)
         {
-            if (!context.Users.Any(u => u.Email == "user@babydev.com"))
+            if (!context.Users.Any())
             {
                 SeedUsers(context);
                 SeedCategories(context);
@@ -34,9 +34,13 @@ namespace BabyDev.Data.Migrations
         {
             var store = new UserStore<BabyDevUser>(context);
             var manager = new UserManager<BabyDevUser>(store);
-            var user = new BabyDevUser { UserName = "user@babydev.com", Email = "user@babydev.com" };
+            var user = new BabyDevUser { UserName = "admin@babydev.com", Email = "admin@babydev.com" };
+            context.Roles.Add(new IdentityRole { Name = "Admin" });
+            context.SaveChanges();
 
             manager.Create(user, "123456");
+            manager.AddToRole(user.Id, "Admin");
+            context.SaveChanges();
         }
 
         private void SeedCategories(BabyDevDbContext context)

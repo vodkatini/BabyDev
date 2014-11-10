@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace BabyDev.Web.Areas.Child.Controllers
 {
+    [Authorize]
     public class ProfileController : BaseController
     {
         public ProfileController(IBabyDevData data) 

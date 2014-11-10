@@ -1,0 +1,36 @@
+﻿@using BabyDev.Web.Areas.Administration.ViewModels
+@model BabyDev.Web.Areas.Administration.ViewModels.TopicViewModel
+<h2>Topics</h2>
+
+@(Html.Kendo().Grid<TopicViewModel>()
+.Name("grid-topics")
+.Columns(columns =>
+{
+    columns.Bound(model => model.Title);
+    columns.Bound(model => model.RealtedMonths);
+    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
+})
+.DataSource(data =>
+{
+    data.Ajax()
+    .Model(m => m.Id(h => h.Id))
+    .PageSize(10)
+    .ServerOperation(true)
+    .Read(read => read.Action("Read", "Specialists").Data("sendAntiForgery"))
+    .Update(up => up.Action("Update", "Specialists").Data("sendAntiForgery"))
+    .Destroy(del => del.Action("Delete", "Specialists").Data("sendAntiForgery"))
+    .Create(create => create.Action("Create", "Specialists").Data("sendAntiForgery"))
+    .Events(events => events.Sync("sync_handler"));
+}
+)
+.Sortable()
+.Pageable()
+.ToolBar(toolbar => toolbar.Create())
+.Editable(
+e => e.Mode(GridEditMode.PopUp).TemplateName("SpecialistTemplate").Window(w => w.Title("Add/Edit Specialists").Width(420))
+)
+.Filterable()
+.Groupable()
+.Resizable(resize => resize.Columns(true))
+.Selectable()
+)
