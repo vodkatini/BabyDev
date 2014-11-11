@@ -13,7 +13,7 @@
 
         public string Title { get; set; }
 
-        public int RealtedMonths { get; set; }
+        public int RelatedMonths { get; set; }
 
         public virtual ICollection<Paragraph> Paragraphs { get; set; }
     }

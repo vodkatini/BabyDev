@@ -1,20 +1,27 @@
-﻿using BabyDev.Web.Infrastructure.Mapping;
+﻿using AutoMapper;
 
 namespace BabyDev.Web.Areas.Administration.ViewModels
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using BabyDev.Models;
 
-    public class TopicViewModel : IMapFrom<Topic>
+    using BabyDev.Models;
+    using BabyDev.Web.Infrastructure.Mapping;
+
+    public class TopicViewModel : IMapFrom<Topic>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         public string Title { get; set; }
 
-        public int RealtedMonths { get; set; }
+        public int RelatedMonths { get; set; }
 
-        public virtual ICollection<Paragraph> Paragraphs { get; set; }
+        public string CategoryName { get; set; }
+        public void CreateMappings(IConfiguration configuration)
+        {
+            configuration.CreateMap<Topic, TopicViewModel>()
+                .ForMember(m => m.CategoryName, opt => opt.MapFrom(u => u.Category.Name));
+        }
     }
 }
