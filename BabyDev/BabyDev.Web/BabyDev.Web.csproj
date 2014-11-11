@@ -200,6 +200,7 @@
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\PanelController.cs" />
     <Compile Include="Areas\Administration\Controllers\TopicsController.cs" />
     <Compile Include="Areas\Administration\ViewModels\TopicViewModel.cs" />
@@ -466,6 +467,8 @@
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Panel\Index.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\Panel\Categories.cshtml" />
+    <Content Include="Areas\Administration\Views\Panel\Paragraphs.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -526,6 +529,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Admin\" />
+    <Folder Include="Areas\Administration\Views\Categories\" />
     <Folder Include="Areas\Administration\Views\Topics\" />
     <Folder Include="Areas\Child\Views\Shared\" />
     <Folder Include="Views\Base\" />

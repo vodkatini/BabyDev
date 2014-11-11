@@ -6,7 +6,7 @@
     using BabyDev.Data.Contracts;
     using BabyDev.Models;
 
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public abstract class AdminController : BaseController
     {
         // GET: Administration/Admin

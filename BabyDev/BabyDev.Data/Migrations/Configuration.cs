@@ -34,12 +34,14 @@ namespace BabyDev.Data.Migrations
         {
             var store = new UserStore<BabyDevUser>(context);
             var manager = new UserManager<BabyDevUser>(store);
-            var user = new BabyDevUser { UserName = "admin@babydev.com", Email = "admin@babydev.com" };
+            var admin = new BabyDevUser { UserName = "admin@babydev.com", Email = "admin@babydev.com" };
+            var user = new BabyDevUser { UserName = "user@babydev.com", Email = "user@babydev.com" };
             context.Roles.Add(new IdentityRole { Name = "Admin" });
             context.SaveChanges();
 
             manager.Create(user, "123456");
-            manager.AddToRole(user.Id, "Admin");
+            manager.Create(admin, "123456");
+            manager.AddToRole(admin.Id, "Admin");
             context.SaveChanges();
         }
 

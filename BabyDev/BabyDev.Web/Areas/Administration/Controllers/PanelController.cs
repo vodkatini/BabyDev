@@ -23,5 +23,15 @@ namespace BabyDev.Web.Areas.Administration.Controllers
         {
             return View();
         }
+
+        public ActionResult Categories()
+        {
+            return View();
+        }
+
+        public ActionResult Paragraphs()
+        {
+            return View();
+        }
     }
 }

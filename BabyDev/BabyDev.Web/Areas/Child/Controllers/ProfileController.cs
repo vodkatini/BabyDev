@@ -39,13 +39,20 @@ namespace BabyDev.Web.Areas.Child.Controllers
                 relatedMonths = (DateTime.Now - child.Born).Days / 30;
             }
 
-            var topic = this.Data.Topics.All().First(t => t.RelatedMonths == relatedMonths);
+            var topic = this.Data.Topics.All().FirstOrDefault(t => t.RelatedMonths == relatedMonths);
 
-            var topicViewModel = new TopicViewModel()
+            var topicViewModel = new TopicViewModel();
+
+            if (topic == null)
             {
-                Title = topic.Title,
-                Paragraphs = topic.Paragraphs
-            };
+                topicViewModel.Title = "Your Child is old enough to get a job!";
+                topicViewModel.Paragraphs = new HashSet<Paragraph>();
+            }
+            else
+            {
+                topicViewModel.Title = topic.Title;
+                topicViewModel.Paragraphs = topic.Paragraphs;
+            }
 
             return View(topicViewModel);
         }
