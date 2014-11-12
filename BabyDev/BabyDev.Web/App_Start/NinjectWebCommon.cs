@@ -64,7 +64,8 @@ namespace BabyDev.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IBabyDevData>().To<BabyDevData>().WithConstructorArgument("context", c => new BabyDevDbContext());
+            kernel.Bind<IBabyDevDbContext>().To<BabyDevDbContext>();
+            kernel.Bind<IBabyDevData>().To<BabyDevData>();
         }        
     }
 }

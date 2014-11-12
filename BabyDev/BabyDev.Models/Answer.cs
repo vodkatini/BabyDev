@@ -1,8 +1,9 @@
 ﻿using System;
+using BabyDev.Contracts;
 
 namespace BabyDev.Models
 {
-    public class Answer
+    public class Answer : DeletableEntity
     {
         public int Id { get; set; }
 

@@ -540,6 +540,14 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BabyDev.Common\BabyDev.Common.csproj">
+      <Project>{cce8a884-78aa-48fd-b2e7-23a99f4a63c5}</Project>
+      <Name>BabyDev.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BabyDev.Contracts\BabyDev.Contracts.csproj">
+      <Project>{4fd810d0-74e8-4cac-a2b5-d1001f8fc0d1}</Project>
+      <Name>BabyDev.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BabyDev.Data\BabyDev.Data.csproj">
       <Project>{08375d80-f1c3-47f4-8cff-f817ddf2b635}</Project>
       <Name>BabyDev.Data</Name>

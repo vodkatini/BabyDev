@@ -1,4 +1,6 @@
-﻿namespace BabyDev.Data.Contracts
+﻿using System.Data.Entity.Infrastructure;
+
+namespace BabyDev.Data.Contracts
 {
     using System.Data.Entity;
 
@@ -19,5 +21,15 @@
         IDbSet<Topic> Topics { get; set; }
 
         IDbSet<BabyDevUser> Users { get; set; }
+
+        DbContext DbContext { get; }
+
+        int SaveChanges();
+
+        void Dispose();
+
+        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
+
+        IDbSet<T> Set<T>() where T : class;
     }
 }

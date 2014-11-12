@@ -1,10 +1,12 @@
-﻿namespace BabyDev.Models
+﻿using BabyDev.Contracts;
+
+namespace BabyDev.Models
 {
     using System;
 
     using System.ComponentModel.DataAnnotations;
 
-    public class Paragraph
+    public class Paragraph : DeletableEntity
     {
         [Key]
         public int Id { get; set; }

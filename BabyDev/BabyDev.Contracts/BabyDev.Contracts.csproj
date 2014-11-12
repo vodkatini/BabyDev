@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08375D80-F1C3-47F4-8CFF-F817DDF2B635}</ProjectGuid>
+    <ProjectGuid>{4FD810D0-74E8-4CAC-A2B5-D1001F8FC0D1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BabyDev.Data</RootNamespace>
-    <AssemblyName>BabyDev.Data</AssemblyName>
+    <RootNamespace>BabyDev.Contracts</RootNamespace>
+    <AssemblyName>BabyDev.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -38,12 +38,6 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -54,34 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BabyDevData.cs" />
-    <Compile Include="BabyDevDbContext.cs" />
-    <Compile Include="Contracts\IBabyDevData.cs" />
-    <Compile Include="Contracts\IBabyDevDbContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="AuditInfo.cs" />
+    <Compile Include="CodeFirstConventions\UnicodeAttributeConvention.cs" />
+    <Compile Include="DataAnnotations\IsUnicodeAttribute.cs" />
+    <Compile Include="DeletableEntity.cs" />
+    <Compile Include="IAuditInfo.cs" />
+    <Compile Include="IDeletableEntityRepository.cs" />
+    <Compile Include="IDeletableEntity.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DeletableEntityRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BabyDev.Common\BabyDev.Common.csproj">
-      <Project>{cce8a884-78aa-48fd-b2e7-23a99f4a63c5}</Project>
-      <Name>BabyDev.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BabyDev.Contracts\BabyDev.Contracts.csproj">
-      <Project>{4fd810d0-74e8-4cac-a2b5-d1001f8fc0d1}</Project>
-      <Name>BabyDev.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BabyDev.Models\BabyDev.Models.csproj">
-      <Project>{6b8bbba8-39a8-4dfc-b96a-1fc921726e63}</Project>
-      <Name>BabyDev.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

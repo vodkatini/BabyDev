@@ -1,11 +1,13 @@
-﻿namespace BabyDev.Models
+﻿using BabyDev.Contracts;
+
+namespace BabyDev.Models
 {
     using System.Collections.Generic;
 
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Category
+    public class Category : DeletableEntity
     {
         public Category()
         {

@@ -1,21 +1,24 @@
-﻿namespace BabyDev.Data.Contracts
+﻿
+namespace BabyDev.Data.Contracts
 {
-    using BabyDev.Data.Repositories;
+    using BabyDev.Contracts;
     using BabyDev.Models;
 
     public interface IBabyDevData
     {
-        IRepository<Answer> Answers { get; }
+        IBabyDevDbContext Context { get; }
 
-        IRepository<Category> Categories { get; }
+        IDeletableEntityRepository<Answer> Answers { get; }
 
-        IRepository<Child> Children { get; }
+        IDeletableEntityRepository<Category> Categories { get; }
 
-        IRepository<Paragraph> Paragraphs { get; }
+        IDeletableEntityRepository<Child> Children { get; }
 
-        IRepository<Question> Questions { get; }
+        IDeletableEntityRepository<Paragraph> Paragraphs { get; }
 
-        IRepository<Topic> Topics { get; }
+        IDeletableEntityRepository<Question> Questions { get; }
+
+        IDeletableEntityRepository<Topic> Topics { get; }
 
         IRepository<BabyDevUser> Users { get; }
 

@@ -1,4 +1,6 @@
-﻿namespace BabyDev.Data
+﻿using BabyDev.Contracts;
+
+namespace BabyDev.Data
 {
     using System;
     using System.Collections.Generic;
@@ -10,60 +12,68 @@
 
     public class BabyDevData : IBabyDevData
     {
-        private DbContext context;
+        private IBabyDevDbContext context;
         private IDictionary<Type, object> repositories;
 
-        public BabyDevData(DbContext context)
+        public BabyDevData(IBabyDevDbContext context)
         {
             this.context = context;
             this.repositories = new Dictionary<Type, object>();
         }
 
-        public IRepository<Answer> Answers
+        public IBabyDevDbContext Context
         {
             get
             {
-                return this.GetRepository<Answer>();
+                return this.context;
             }
         }
 
-        public IRepository<Category> Categories
+        public IDeletableEntityRepository<Answer> Answers
         {
             get
             {
-                return this.GetRepository<Category>();
+                return this.GetDeletableEntityRepository<Answer>();
             }
         }
 
-        public IRepository<Child> Children
+        public IDeletableEntityRepository<Category> Categories
         {
             get
             {
-                return this.GetRepository<Child>();
+                return this.GetDeletableEntityRepository<Category>();
             }
         }
 
-        public IRepository<Paragraph> Paragraphs
+        public IDeletableEntityRepository<Child> Children
         {
             get
             {
-                return this.GetRepository<Paragraph>();
+                return this.GetDeletableEntityRepository<Child>();
             }
         }
 
-        public IRepository<Question> Questions
+        public IDeletableEntityRepository<Paragraph> Paragraphs
         {
             get
             {
-                return this.GetRepository<Question>();
+                return this.GetDeletableEntityRepository<Paragraph>();
             }
         }
 
-        public IRepository<Topic> Topics
+        public IDeletableEntityRepository<Question> Questions
         {
             get
             {
-                return this.GetRepository<Topic>();
+                return this.GetDeletableEntityRepository<Question>();
+            }
+        }
+
+        public IDeletableEntityRepository<Topic> Topics
+        {
+            get
+            {
+                return this.GetDeletableEntityRepository<Topic>();
             }
         }
 
@@ -80,16 +90,42 @@
             return this.context.SaveChanges();
         }
 
+        public void Dispose()
+        {
+            this.Dispose(true);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (this.context != null)
+                {
+                    this.context.Dispose();
+                }
+            }
+        }
+
         private IRepository<T> GetRepository<T>() where T : class
         {
-            var typeOfRepository = typeof(T);
-            if (!this.repositories.ContainsKey(typeOfRepository))
+            if (!this.repositories.ContainsKey(typeof(T)))
             {
-                var newRepository = Activator.CreateInstance(typeof(EFRepository<T>), context);
-                this.repositories.Add(typeOfRepository, newRepository);
+                var type = typeof(GenericRepository<T>);
+                this.repositories.Add(typeof(T), Activator.CreateInstance(type, this.context));
             }
 
-            return (IRepository<T>)this.repositories[typeOfRepository];
+            return (IRepository<T>)this.repositories[typeof(T)];
+        }
+
+        private IDeletableEntityRepository<T> GetDeletableEntityRepository<T>() where T : class, IDeletableEntity
+        {
+            if (!this.repositories.ContainsKey(typeof(T)))
+            {
+                var type = typeof(DeletableEntityRepository<T>);
+                this.repositories.Add(typeof(T), Activator.CreateInstance(type, this.context));
+            }
+
+            return (IDeletableEntityRepository<T>)this.repositories[typeof(T)];
         }
     }
 }

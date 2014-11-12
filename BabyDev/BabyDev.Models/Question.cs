@@ -1,8 +1,10 @@
-﻿namespace BabyDev.Models
+﻿using BabyDev.Contracts;
+
+namespace BabyDev.Models
 {
     using System;
 
-    public class Question
+    public class Question : DeletableEntity
     {
         public int Id { get; set; }
 
