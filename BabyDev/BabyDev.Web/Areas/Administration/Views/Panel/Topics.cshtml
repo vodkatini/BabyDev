@@ -1,6 +1,6 @@
 ﻿@using BabyDev.Web.Areas.Administration.ViewModels
 @model TopicViewModel
-           
+
 @{
     ViewBag.Title = "Topics";
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
@@ -15,8 +15,8 @@
     columns.Bound(model => model.Title);
     columns.Bound(model => model.RelatedMonths);
     columns.Bound(model => model.CategoryName);
-    
-//    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
+
+    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
 })
 .DataSource(data =>
 {
@@ -24,18 +24,18 @@
         .Model(m => m.Id(t => t.Id))
         .PageSize(10)
         .ServerOperation(true)
-        .Read(read => read.Action("Read", "Topics"));
-//    .Update(up => up.Action("Update", "Topics"))
-//    .Destroy(del => del.Action("Delete", "Topics"))
-//    .Create(create => create.Action("Create", "Topics"));
+        .Read(read => read.Action("Read", "Topics"))
+        .Update(up => up.Action("Update", "Topics"))
+        .Destroy(del => del.Action("Delete", "Topics"))
+        .Create(create => create.Action("Create", "Topics"));
 }
 )
 .Sortable()
 .Pageable()
-//.ToolBar(toolbar => toolbar.Create())
-//.Editable(
-//e => e.Mode(GridEditMode.PopUp).TemplateName("SpecialistTemplate").Window(w => w.Title("Add/Edit Specialists").Width(420))
-//)
+.ToolBar(toolbar => toolbar.Create())
+.Editable(
+e => e.Mode(GridEditMode.PopUp).TemplateName("TopicsTemplate").Window(w => w.Title("Add/Edit Topics").Width(420))
+)
 .Filterable()
 .Groupable()
 .Resizable(resize => resize.Columns(true))
