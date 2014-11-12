@@ -1,0 +1,75 @@
+﻿@using BabyDev.Web.Areas.Administration.ViewModels
+@model TopicViewModel
+
+@{
+    ViewBag.Title = "Topics";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string ControllerName = "Topics";
+}
+
+<h2>Topics</h2>
+
+@*@(Html.Kendo().Grid<TopicViewModel>()*@
+@*.Name("grid-topics")*@
+@*.Columns(columns =>*@
+@*{*@
+@*    columns.Bound(model => model.Title);*@
+@*    columns.Bound(model => model.RelatedMonths);*@
+@*    columns.Bound(model => model.CategoryName);*@
+@**@
+@*    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);*@
+@*})*@
+@*.DataSource(data =>*@
+@*{*@
+@*    data.Ajax()*@
+@*        .Model(m => m.Id(t => t.Id))*@
+@*        .PageSize(10)*@
+@*        .ServerOperation(true)*@
+@*        .Read(read => read.Action("Read", "Topics"))*@
+@*        .Update(up => up.Action("Update", "Topics"))*@
+@*        .Destroy(del => del.Action("Destroy", "Topics"))*@
+@*        .Create(create => create.Action("Create", "Topics"));*@
+@*}*@
+@*)*@
+@*.Sortable()*@
+@*.Pageable()*@
+@*.ToolBar(toolbar => toolbar.Create())*@
+@*.Editable(*@
+@*e => e.Mode(GridEditMode.PopUp).TemplateName("TopicsTemplate").Window(w => w.Title("Add/Edit Topics").Width(420))*@
+@*)*@
+@*.Filterable()*@
+@*.Groupable()*@
+@*.Resizable(resize => resize.Columns(true))*@
+@*.Selectable()*@
+@*      )*@
+
+@(Html.Kendo()
+    .Grid<TopicViewModel>()
+    .Name("grid")
+    .Columns(cols =>
+    {
+        cols.Bound(t => t.Id);
+        cols.Bound(t => t.Title);
+        cols.Bound(t => t.RelatedMonths);
+        cols.Bound(t => t.CategoryName);        
+        cols.Bound(t => t.CreatedOn).Hidden();
+        cols.Bound(t => t.ModifiedOn).Hidden();
+        cols.Command(com => com.Edit()).Title("Update");
+        cols.Command(com => com.Destroy()).Title("Delete");
+    })
+    .ColumnMenu()
+    .Pageable(page => page.Refresh(true))
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .ToolBar(toolbar => toolbar.Create())
+    .DataSource(data =>
+        data
+            .Ajax()
+            .Model(m => m.Id(t => t.Id))
+            .Read(read => read.Action("Read", ControllerName))
+            .Create(create => create.Action("Create", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(destroy => destroy.Action("Destroy", ControllerName))
+            ))

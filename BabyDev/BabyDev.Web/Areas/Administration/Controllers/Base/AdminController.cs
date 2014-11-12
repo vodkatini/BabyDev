@@ -1,4 +1,4 @@
-﻿namespace BabyDev.Web.Areas.Administration.Controllers
+﻿namespace BabyDev.Web.Areas.Administration.Controllers.Base
 {
     using System.Web.Mvc;
     using BabyDev.Web.Controllers;

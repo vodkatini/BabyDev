@@ -32,9 +32,6 @@ namespace BabyDev.Models
 
         public virtual BabyDevUser Author { get; set; }
 
-        [Required]
-        public DateTime CreatedOn { get; set; }
-
         public virtual ICollection<Paragraph> Paragraphs { get; set; }
     }
 }
