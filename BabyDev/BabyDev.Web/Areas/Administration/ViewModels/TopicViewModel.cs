@@ -24,8 +24,6 @@
         
         public string AuthorId { get; set; }
 
-        public DateTime CreatedOn { get; set; }
-
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Topic, TopicViewModel>()

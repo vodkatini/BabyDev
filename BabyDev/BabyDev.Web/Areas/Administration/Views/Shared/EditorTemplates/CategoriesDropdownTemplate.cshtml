@@ -1,0 +1,17 @@
+﻿@using System.Collections
+
+@model System.Int32
+
+@(Html.Kendo().DropDownList()
+
+.BindTo((IEnumerable)ViewBag.CategoriesList)
+
+.OptionLabel("- Select Category - ")
+
+.DataValueField("Id")
+
+.DataTextField("Name")
+
+.Name("CategoryId")
+
+)

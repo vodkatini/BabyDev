@@ -1,0 +1,32 @@
+﻿@model BabyDev.Web.Areas.Administration.ViewModels.ParagraphViewModel
+
+<div class="kendo-form">
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Subtitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-7">
+                        @Html.EditorFor(m => m.Subtitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.Subtitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-7">
+                        @Html.EditorFor(m => m.Content, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TopicTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-7">
+                        @Html.DropDownListFor(m => m.TopicId, new SelectList(ViewBag.TopicsList, "Id", "Title", Model.TopicId), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.TopicTitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    }
+</div>

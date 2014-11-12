@@ -1,23 +1,23 @@
 ﻿@using BabyDev.Web.Areas.Administration.ViewModels
-@model TopicViewModel
+@model ParagraphViewModel
 
 @{
     ViewBag.Title = "Topics";
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
-    const string ControllerName = "Topics";
+    const string ControllerName = "Paragraphs";
 }
 
 <h2>Topics</h2>
 
 @(Html.Kendo()
-    .Grid<TopicViewModel>()
+    .Grid<ParagraphViewModel>()
     .Name("grid")
     .Columns(cols =>
     {
         cols.Bound(t => t.Id);
-        cols.Bound(t => t.Title);
-        cols.Bound(t => t.RelatedMonths);
-        cols.Bound(t => t.CategoryId);//.EditorTemplateName("CategoriesDropdownTemplate").Title("Category").ClientTemplate("#:CategoryName#");        
+        cols.Bound(t => t.Subtitle);
+        cols.Bound(t => t.Content);
+        cols.Bound(t => t.TopicId);//.EditorTemplateName("CategoriesDropdownTemplate").Title("Category").ClientTemplate("#:CategoryName#");
         cols.Bound(t => t.CreatedOn).Hidden();
         cols.Bound(t => t.ModifiedOn).Hidden();
         cols.Command(com => com.Edit()).Title("Update");
@@ -28,7 +28,7 @@
     .Sortable()
     .Groupable()
     .Filterable()
-    .Editable(edit => edit.Mode(GridEditMode.PopUp).TemplateName("TopicsTemplate"))
+    .Editable(edit => edit.Mode(GridEditMode.PopUp).TemplateName("ParagraphsTemplate"))
     .ToolBar(toolbar => toolbar.Create())
     .DataSource(data =>
         data

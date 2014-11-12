@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace BabyDev.Web.Areas.Administration.Controllers
 {
@@ -29,6 +30,8 @@ namespace BabyDev.Web.Areas.Administration.Controllers
 
         public ActionResult Index()
         {
+            List<Category> categories = this.Data.Categories.All().ToList();
+            ViewBag.CategoriesList = categories;
             return View();
         }
 

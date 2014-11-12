@@ -203,9 +203,11 @@
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\PanelController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ParagraphsController.cs" />
     <Compile Include="Areas\Administration\Controllers\TopicsController.cs" />
     <Compile Include="Areas\Administration\ViewModels\AdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\CategoryViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\ParagraphViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\TopicViewModel.cs" />
     <Compile Include="Areas\Child\ChildAreaRegistration.cs" />
     <Compile Include="Areas\Child\Controllers\ProfileController.cs" />
@@ -474,6 +476,9 @@
     <Content Include="Areas\Administration\Views\Panel\Paragraphs.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\TopicsTemplate.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\CategoriesDropdownTemplate.cshtml" />
+    <Content Include="Areas\Administration\Views\Paragraphs\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ParagraphsTemplate.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
