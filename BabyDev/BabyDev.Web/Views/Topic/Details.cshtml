@@ -3,10 +3,20 @@
     ViewBag.Title = "Details";
 }
 
+@section SideBarLeft
+{
+    @Html.Action("_TopicsPartial")
+}
+
 <h2>@Model.Title</h2>
 @foreach (var paragraph in Model.Paragraphs)
 {
     <h3>@paragraph.Subtitle</h3>
     <p>@paragraph.Content</p>
+}
+
+@section SideBarRight
+{
+    @Html.Action("_CategoriesPartial")
 }
 

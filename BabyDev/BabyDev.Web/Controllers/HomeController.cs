@@ -12,7 +12,7 @@
     using BabyDev.Models;
     using BabyDev.Web.ViewModels;
 
-    public class HomeController : BaseController
+    public class HomeController : SideBarController
     {
         public HomeController(IBabyDevData data) 
             : base(data)
@@ -25,7 +25,7 @@
                 .OrderByDescending(t => t.CreatedOn)
                 .Project()
                 .To<TopicViewModel>()
-                .Take(5)
+                .Take(4)
                 .ToList();
             return View(topics);
         }
@@ -43,15 +43,24 @@
 
             return View();
         }
-
-        public ActionResult Details(int id)
-        {
-            var topic = this.Data.Topics.All()
-                .Project()
-                .To<TopicViewModel>()
-                .First(t => t.Id == id);
-            return View(topic);
-        }
+//
+//        public ActionResult Topic(int id)
+//        {
+//            var topic = this.Data.Topics.All()
+//                .Project()
+//                .To<TopicViewModel>()
+//                .First(t => t.Id == id);
+//            return View(topic);
+//        }
+//
+//        public ActionResult Category(int id)
+//        {
+//            var topic = this.Data.Categories.All()
+//                .Project()
+//                .To<CategoryViewModel>()
+//                .First(t => t.Id == id);
+//            return View(topic);
+//        }
 
         public ActionResult Error()
         {

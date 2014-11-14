@@ -3,50 +3,56 @@
     ViewBag.Title = "Home Page";
 }
 
+@section SideBarLeft
+{
+    @Html.Action("_TopicsPartial")
+}
+
 <div class="jumbotron">
     <img src="~/Content/Imgs/favicon.png" alt="Logo" class="pull-right" />
     <h1>Baby's Development Site</h1>
     <p class="lead">What to expect for your little one and your lifestyle</p>
 </div>
 
-<div class="row">
-    <div class="col-md-10">
-        <h2>Latest Topics</h2>
-        <ul class="nav nav-tabs" id="top-stories">
-            <li class="active"><a href="#topic-@Model[0].Id" data-toggle="tab">@Model[0].Title</a></li>
-            @for (int i = 1; i < @Model.Count; i++)
-            {
-                <li><a href="#topic-@Model[i].Id" data-toggle="tab">@Model[i].Title</a></li>
-            }
-        </ul>
-        <div id="myTabContent" class="tab-content">
-            @foreach (var topic in @Model)
-            {
-                <div class="tab-pane fade" id="topic-@topic.Id">
+<h2>Latest Topics</h2>
+<ul class="nav nav-tabs" id="top-stories">
+    <li class="active"><a href="#topic-@Model[0].Id" data-toggle="tab">@Model[0].Title</a></li>
+    @for (int i = 1; i < @Model.Count; i++)
+    {
+        <li><a href="#topic-@Model[i].Id" data-toggle="tab">@Model[i].Title</a></li>
+    }
+</ul>
+<div id="myTabContent" class="tab-content">
+    @foreach (var topic in @Model)
+    {
+        <div class="tab-pane fade" id="topic-@topic.Id">
 
-                    @foreach (var paragraph in topic.Paragraphs.Take(3))
-                    {
-                        <h4>@paragraph.Subtitle</h4>
-                        <p>
-                            @{
-                        string output = paragraph.Content;
-                        if (paragraph.Content.Length > 50)
-                        {
-                            output = paragraph.Content.Substring(0, 120) + "...";
-                        }
-                            }
-
-                            @output
-                        </p>                        
+            @foreach (var paragraph in topic.Paragraphs.Take(3))
+            {
+                <h4>@paragraph.Subtitle</h4>
+                <p>
+                    @{
+                string output = paragraph.Content;
+                if (paragraph.Content.Length > 50)
+                {
+                    output = paragraph.Content.Substring(0, 120) + "...";
+                }
                     }
-                    <p>
-                        @Html.ActionLink("Read", "Details", new { @id = topic.Id }, new { @class = "btn btn-default" })
-                    </p>
-                </div>
+
+                    @output
+                </p>
             }
+            <p>
+                @Html.ActionLink("Read", "Details", "Topic", new { area = "", @id = topic.Id }, new { @class = "btn btn-default" })
+            </p>
         </div>
-    </div>
+    }
 </div>
+
+@section SideBarRight
+{
+    @Html.Action("_CategoriesPartial")
+}
 
 @section scripts
 {
