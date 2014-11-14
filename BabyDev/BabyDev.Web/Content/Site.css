@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#ask-question-title {
+    width: 500px;
+}

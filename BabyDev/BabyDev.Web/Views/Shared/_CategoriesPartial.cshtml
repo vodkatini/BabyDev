@@ -1,7 +1,7 @@
 ﻿@model List<BabyDev.Web.ViewModels.CategoryViewModel>
 
 <div class="well text-center">
-    <h3>Categories</h3>
+    <h3>@Html.ActionLink("Categories", "Index", "Category", null, htmlAttributes: new { area = "" })</h3>
     @foreach (var category in @Model)
     {
         <p>

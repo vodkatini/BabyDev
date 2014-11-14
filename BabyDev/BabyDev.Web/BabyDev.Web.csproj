@@ -220,7 +220,9 @@
     <Compile Include="Areas\Child\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Child\ViewModels\ChildViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdviceController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SideBarController.cs" />
@@ -233,6 +235,7 @@
     <Compile Include="Infrastructure\Mapping\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\AddQuestionViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -560,6 +563,10 @@
     <Content Include="Views\Shared\_CategoriesPartial.cshtml" />
     <Content Include="Views\Shared\_TopicsPartial.cshtml" />
     <Content Include="Views\Topic\Index.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Category\_CategoryTopicsPartial.cshtml" />
+    <Content Include="Views\Advice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

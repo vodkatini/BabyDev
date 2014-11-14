@@ -1,0 +1,19 @@
+﻿@model List<BabyDev.Web.ViewModels.CategoryViewModel>
+<h3>Categories</h3>
+
+@section SideBarLeft
+{
+    @Html.Action("_TopicsPartial")
+}
+
+@foreach (var category in Model)
+{
+    <p>@category.Name</p>
+}
+
+@section SideBarRight
+{
+    @Html.Action("_CategoriesPartial")
+}
+
+

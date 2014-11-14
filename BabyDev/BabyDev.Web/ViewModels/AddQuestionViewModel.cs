@@ -1,17 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using BabyDev.Contracts;
 
-namespace BabyDev.Models
+namespace BabyDev.Web.ViewModels
 {
     using System;
+    using BabyDev.Models;
 
-    public class Question : DeletableEntity
+    public class AddQuestionViewModel
     {
-        [Key]
         public int Id { get; set; }
-        
+
+        [Required]
         public string Title { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string Body { get; set; }
 
         public string AuthorId { get; set; }

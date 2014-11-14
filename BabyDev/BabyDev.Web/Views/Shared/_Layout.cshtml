@@ -26,8 +26,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("About", "About", "Home",new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Topics", "Index", "Topic", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Categories", "Index", "Category", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Expert Advice", "Index", "Advice", new { area = "" }, null)</li>
                     @if (User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Admin Panel", "Index", "Panel", new { area = "Administration" }, null)</li>
@@ -56,7 +57,13 @@
     </div>
     <hr />
     <footer>
-        <p class="text-center">&copy; @DateTime.Now.Year - ASP.NET MVC Individual Project</p>
+        <p class="text-center">
+            &copy; @DateTime.Now.Year - ASP.NET MVC Individual Project
+        </p>
+        <p class="text-center">
+            @Html.ActionLink("About", "About", "Home", new { area = "" }, null)
+            @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)
+        </p>
     </footer>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

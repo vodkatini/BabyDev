@@ -1,4 +1,5 @@
-﻿using BabyDev.Models;
+﻿using System.Collections.Generic;
+using BabyDev.Models;
 using BabyDev.Web.Infrastructure.Mapping;
 
 namespace BabyDev.Web.ViewModels
@@ -8,5 +9,7 @@ namespace BabyDev.Web.ViewModels
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public virtual ICollection<Topic> Topics { get; set; }
     }
 }

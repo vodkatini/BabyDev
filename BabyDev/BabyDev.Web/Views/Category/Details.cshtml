@@ -1,0 +1,21 @@
+﻿@model BabyDev.Web.ViewModels.CategoryViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+@section SideBarLeft
+{
+    @Html.Action("_CategoryTopicsPartial", new { id = Model.Id})
+}
+
+<h2>@Model.Name</h2>
+@foreach (var topic in Model.Topics)
+{
+    <h3>@Html.ActionLink(topic.Title, "Details", "Topic", new { id = topic.Id }, htmlAttributes: new { area = "" })</h3>
+}
+
+@section SideBarRight
+{
+    @Html.Action("_CategoriesPartial")
+}
+

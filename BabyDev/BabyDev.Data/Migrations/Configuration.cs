@@ -49,15 +49,15 @@ namespace BabyDev.Data.Migrations
         {
             var categories = new List<Category>()
             {
+                new Category() {Name = "Pregnancy"},
                 new Category() {Name = "Newborn"},
-                new Category() {Name = "1 Month Old"},
+                new Category() {Name = "Baby"},
+                new Category() {Name = "Toddler"},
+                new Category() {Name = "Preschooler"},
+                new Category() {Name = "Big Kid"},
+                new Category() {Name = "For You"}
             };
             
-            for (int i = 2; i < 25; i++)
-            {
-                categories.Add(new Category() { Name = i + " Months Old" });
-            }
-
             context.Categories.AddOrUpdate(categories.ToArray());
             context.SaveChanges();
         }
