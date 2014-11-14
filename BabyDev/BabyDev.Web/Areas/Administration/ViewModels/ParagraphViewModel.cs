@@ -1,4 +1,6 @@
-﻿namespace BabyDev.Web.Areas.Administration.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BabyDev.Web.Areas.Administration.ViewModels
 {
     using System.Web.Mvc;
     using AutoMapper;
@@ -12,6 +14,7 @@
 
         public string Subtitle { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
         public int TopicId { get; set; }

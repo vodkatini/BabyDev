@@ -52,5 +52,10 @@
                 .First(t => t.Id == id);
             return View(topic);
         }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
     }
 }
