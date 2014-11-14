@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BabyDev.Data.Contracts;
 using BabyDev.Models;
+using Microsoft.AspNet.Identity;
 
 namespace BabyDev.Web.Controllers
 {
@@ -16,14 +17,11 @@ namespace BabyDev.Web.Controllers
             this.Data = data;
         }
 
-        public BaseController(IBabyDevData data, BabyDevUser user)
-            : this(data)
-        {
-            this.UserProfile = user;
-        }
-
         protected IBabyDevData Data { get; set; }
 
-        protected BabyDevUser UserProfile { get; set; }
+        protected string GetUserId()
+        {
+            return this.User.Identity.GetUserId();
+        }
     }
 }

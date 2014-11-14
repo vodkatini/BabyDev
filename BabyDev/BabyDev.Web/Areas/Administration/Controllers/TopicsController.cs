@@ -48,6 +48,7 @@ namespace BabyDev.Web.Areas.Administration.Controllers
         [HttpPost]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, ViewModel model)
         {
+            model.AuthorId = this.GetUserId();
             var dbModel = base.Create<Model>(model);
             if (dbModel != null) model.Id = dbModel.Id;
             return this.GridOperation(model, request);

@@ -24,7 +24,7 @@ namespace BabyDev.Models
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
-
+        
         public int RelatedMonths { get; set; }
         
         [Required]

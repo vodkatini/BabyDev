@@ -18,5 +18,9 @@ namespace BabyDev.Models
         public virtual Topic Topic { get; set; }
 
         public int TopicId { get; set; }
+
+        public string AuthorId { get; set; }
+
+        public virtual BabyDevUser Author { get; set; }
     }
 }

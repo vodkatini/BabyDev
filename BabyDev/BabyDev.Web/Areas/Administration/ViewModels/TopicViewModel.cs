@@ -14,10 +14,12 @@
         [HiddenInput(DisplayValue = false)]
         public int? Id { get; set; }
 
+        [StringLength(50,MinimumLength = 5, ErrorMessage = "Title should be between 5 and 50 charachters long")]
         public string Title { get; set; }
 
+        [Range(0, 84, ErrorMessage = "Please enter valid integer Number between 0 and 84 months")]
         public int RelatedMonths { get; set; }
-
+        
         public int CategoryId { get; set; }
 
         public string CategoryName { get; set; }
