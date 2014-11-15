@@ -22,20 +22,15 @@ namespace BabyDev.Web.Areas.Child.Controllers
         // GET: Child/Profile
         public ActionResult Index(int? relatedMonths)
         {
-            if (TempData["success"] != null)
+            var userId = this.GetUserId();
+            var child = this.Data.Children.All().FirstOrDefault(c => c.ParentId == userId);
+            if (child == null)
             {
-                return View(TempData["success"]);
+                    return RedirectToAction("Add");               
             }
 
             if (relatedMonths == null)
             {
-                var userId = this.User.Identity.GetUserId();
-                var child = this.Data.Children.All().FirstOrDefault(c => c.ParentId == userId);
-
-                if (child == null)
-                {
-                    return RedirectToAction("Add");
-                }
                 relatedMonths = (DateTime.Now - child.Born).Days / 30;
             }
 
@@ -59,27 +54,43 @@ namespace BabyDev.Web.Areas.Child.Controllers
 
         public ActionResult Add()
         {
-            return View();
+            var child = new AddChildViewModel();
+            child.Born = DateTime.Now;
+            return View(child);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(ChildViewModel model)
+        public ActionResult Add(AddChildViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var child = new Models.Child()
                 {
                     Name = model.Name,
-                    Born = model.Born,
+                    Born = model.Born == null ? DateTime.Now : DateTime.Parse(model.Born.ToString()),
                     Gender = model.Gender,
                     ParentId = this.User.Identity.GetUserId()
                 };
                 this.Data.Children.Add(child);
                 this.Data.SaveChanges();
+
+                return RedirectToAction("Index");
             }
             TempData["success"] = model.Name + " was successfully added";
-            return RedirectToAction("Index");
+            return View(model);
+        }
+
+        public ActionResult Prev(int id)
+        {
+            //var current = this.Data.Topics.All().First(t => t.Id == id).RelatedMonths;
+            return RedirectToAction("Index", new { relatedMonths = id - 1 });
+        }
+
+        public ActionResult Next(int id)
+        {
+            //var current = this.Data.Topics.All().First(t => t.Id == id).RelatedMonths;
+            return RedirectToAction("Index", new { relatedMonths = id + 1 });
         }
     }
 }

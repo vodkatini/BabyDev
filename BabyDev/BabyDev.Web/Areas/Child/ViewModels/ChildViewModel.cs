@@ -7,8 +7,9 @@ namespace BabyDev.Web.Areas.Child.ViewModels
     using System;
 
     using BabyDev.Models;
+    using BabyDev.Web.Infrastructure.Mapping;
 
-    public class ChildViewModel
+    public class ChildViewModel : IMapFrom<Child>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
@@ -22,5 +23,11 @@ namespace BabyDev.Web.Areas.Child.ViewModels
 
         [Required]
         public Gender Gender { get; set; }
+
+        public void CreateMappings(AutoMapper.IConfiguration configuration)
+        {
+            //configuration.CreateMap<Child, ChildViewModel>()
+            //    .ForMember(m => m.Born, opt => opt.MapFrom(u => u.Born.ToLocalTime()));
+        }
     }
 }

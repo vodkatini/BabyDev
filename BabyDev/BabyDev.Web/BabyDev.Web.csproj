@@ -217,6 +217,7 @@
     <Compile Include="Areas\Administration\ViewModels\ParagraphViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\TopicViewModel.cs" />
     <Compile Include="Areas\Child\ChildAreaRegistration.cs" />
+    <Compile Include="Areas\Child\ViewModels\AddChildViewModel.cs" />
     <Compile Include="Areas\Child\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Child\ViewModels\ChildViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -494,6 +495,10 @@
     <Content Include="Areas\Administration\Views\Paragraphs\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\ParagraphsTemplate.cshtml" />
     <Content Include="Mvc.sitemap" />
+    <Content Include="Areas\Child\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Child\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Child\Views\Shared\EditorTemplates\Gender.cshtml" />
+    <Content Include="Areas\Child\Views\Profile\DisplayTemplates\TopicView.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -575,7 +580,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Admin\" />
     <Folder Include="Areas\Administration\Views\KendoGridAdministration\" />
-    <Folder Include="Areas\Child\Views\Shared\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\SideBar\" />
   </ItemGroup>

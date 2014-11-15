@@ -1,0 +1,5 @@
+﻿@model BabyDev.Models.Gender?
+
+@(Html.Kendo().DropDownListFor(m => m)
+            .BindTo(EnumHelper.GetSelectList(typeof(BabyDev.Models.Gender))).OptionLabel("- Select Gender - ")
+)

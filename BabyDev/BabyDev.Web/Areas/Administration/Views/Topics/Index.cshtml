@@ -33,6 +33,7 @@
     .DataSource(data =>
         data
             .Ajax()
+            .ServerOperation(true)
             .Model(m => m.Id(t => t.Id))
             .Read(read => read.Action("Read", ControllerName))
             .Create(create => create.Action("Create", ControllerName))

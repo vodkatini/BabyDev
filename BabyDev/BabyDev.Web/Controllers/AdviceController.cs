@@ -38,7 +38,7 @@
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpPost]        
         [ValidateAntiForgeryToken]
         public ActionResult Ask(AddQuestionViewModel model)
         {

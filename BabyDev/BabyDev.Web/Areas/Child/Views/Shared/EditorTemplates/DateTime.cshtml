@@ -1,0 +1,14 @@
+﻿@*@model DateTime
+
+@(Html.Kendo().DateTimePickerFor(m => m).Name("datetimepicker")
+    .Format("dd/MM/yyyy HH:mm:ss")
+    .Min(new DateTime(2005, 1, 1, 10, 0, 0))
+    .Max(DateTime.Now)
+    .Value(DateTime.Now)    
+    )*@
+@model DateTime?
+@(Html.Kendo().DateTimePicker()
+                .Name("BornDate")
+                .Value(Model == null ? DateTime.Now : @Model)
+                .Format("M/d/yyyy h:mm tt")
+)

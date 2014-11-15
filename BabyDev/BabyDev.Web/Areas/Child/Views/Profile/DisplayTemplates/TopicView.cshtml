@@ -1,0 +1,14 @@
+﻿@model BabyDev.Web.ViewModels.TopicViewModel
+
+@if (Model.RelatedMonths != 0)
+{
+    @Html.ActionLink("Prev", "Prev", "Profile", new { @id = @Model.RelatedMonths }, new { @class = "btn btn-primary" })
+}
+
+<strong>@Html.DisplayFor(m => m.Title)</strong>
+@Html.ActionLink("Next", "Next", "Profile", new { @id = @Model.RelatedMonths }, new { @class = "btn btn-primary" })
+@foreach (var paragraph in Model.Paragraphs)
+{
+    <h4>@paragraph.Subtitle</h4>
+    <p>@paragraph.Content</p>
+}

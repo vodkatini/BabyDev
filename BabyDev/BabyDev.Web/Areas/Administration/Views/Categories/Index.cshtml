@@ -22,7 +22,7 @@
         cols.Command(com => com.Edit()).Title("Update");
         cols.Command(com => com.Destroy()).Title("Delete");
     })
-    .ColumnMenu()
+    .ColumnMenu()    
     .Pageable(page => page.Refresh(true))
     .Sortable()
     .Groupable()
@@ -32,6 +32,7 @@
     .DataSource(data =>
         data
             .Ajax()
+            .ServerOperation(true)
             .Model(m => m.Id(t => t.Id))
             .Read(read => read.Action("Read", ControllerName))
             .Create(create => create.Action("Create", ControllerName))
