@@ -24,7 +24,7 @@
         public ActionResult Index()
         {
             var questions = this.Data.Questions.All()
-                .OrderBy(q => q.AskedOn)
+                .OrderBy(q => q.CreatedOn)
                 .Project()
                 .To<QuestionViewModel>()
                 .ToList();
@@ -49,8 +49,7 @@
                 {
                     Title = model.Title,
                     Body = model.Body,
-                    AuthorId = userId,
-                    AskedOn = DateTime.Now
+                    AuthorId = userId
                 };
 
                 this.Data.Questions.Add(question);

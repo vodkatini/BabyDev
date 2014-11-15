@@ -25,7 +25,7 @@
 
         public virtual BabyDevUser Author { get; set; }
 
-        public DateTime AskedOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         public bool IsAnswered { get; set; }
     }

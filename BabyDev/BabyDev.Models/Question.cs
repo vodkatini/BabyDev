@@ -18,8 +18,6 @@ namespace BabyDev.Models
 
         public virtual BabyDevUser Author { get; set; }
 
-        public DateTime AskedOn { get; set; }
-
         public bool IsAnswered { get; set; }
     }
 }

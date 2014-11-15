@@ -18,6 +18,7 @@ namespace BabyDev.Web.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60 * 60)]
         public ActionResult _CategoriesPartial()
         {
             var categories = this.Data.Categories.All()
@@ -30,10 +31,11 @@ namespace BabyDev.Web.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60)]
         public ActionResult _QuestionsPartial()
         {
             var topics = this.Data.Questions.All()
-                .OrderBy(q => q.AskedOn)
+                .OrderBy(q => q.CreatedOn)
                 .Take(10)
                 .Project()
                 .To<QuestionViewModel>()
