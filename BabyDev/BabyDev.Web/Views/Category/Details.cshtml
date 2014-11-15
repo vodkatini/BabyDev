@@ -5,7 +5,7 @@
 
 @section SideBarLeft
 {
-    @Html.Action("_CategoryTopicsPartial", new { id = Model.Id})
+    @Html.Action("_CategoriesPartial")
 }
 
 <h2>@Model.Name</h2>
@@ -16,6 +16,6 @@
 
 @section SideBarRight
 {
-    @Html.Action("_CategoriesPartial")
+    @Html.Action("_QuestionsPartial")
 }
 

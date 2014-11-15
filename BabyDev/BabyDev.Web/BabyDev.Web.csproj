@@ -566,7 +566,6 @@
     <Content Include="Views\Topic\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
-    <Content Include="Views\Category\_CategoryTopicsPartial.cshtml" />
     <Content Include="Views\Advice\Ask.cshtml" />
     <Content Include="Views\Advice\Details.cshtml" />
     <Content Include="Views\Advice\Index.cshtml" />

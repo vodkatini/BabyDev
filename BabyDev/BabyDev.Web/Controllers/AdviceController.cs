@@ -11,8 +11,7 @@
     using BabyDev.Data.Contracts;
     using BabyDev.Web.ViewModels;
     using BabyDev.Models;
-
-    [Authorize]
+    
     public class AdviceController : SideBarController
     {
         // GET: Advice
@@ -21,6 +20,7 @@
         {
         }
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var questions = this.Data.Questions.All()
@@ -31,11 +31,13 @@
             return View(questions);
         }
 
+        [Authorize]
         public ActionResult Ask()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Ask(AddQuestionViewModel model)
@@ -58,6 +60,7 @@
             return this.View(model);            
         }
 
+        [AllowAnonymous]
         public ActionResult Details(int id)
         {
             var question = this.Data.Questions.All()

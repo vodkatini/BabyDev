@@ -34,17 +34,6 @@ namespace BabyDev.Web.Controllers
                 .To<CategoryViewModel>()
                 .First();
             return View(category);
-        }
-
-        public ActionResult _CategoryTopicsPartial(int id)
-        {
-            var topics = this.Data.Topics
-                .All()
-                .Where(t => t.CategoryId == id)
-                .Project()
-                .To<TopicViewModel>()
-                .ToList();
-            return PartialView(topics);
-        }
+        }       
     }
 }
