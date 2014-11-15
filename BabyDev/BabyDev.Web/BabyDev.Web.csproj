@@ -562,13 +562,13 @@
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Shared\_CategoriesPartial.cshtml" />
-    <Content Include="Views\Shared\_TopicsPartial.cshtml" />
+    <Content Include="Views\Shared\_QuestionsPartial.cshtml" />
     <Content Include="Views\Topic\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Category\_CategoryTopicsPartial.cshtml" />
     <Content Include="Views\Advice\Ask.cshtml" />
-    <Content Include="Views\Advice\Question.cshtml" />
+    <Content Include="Views\Advice\Details.cshtml" />
     <Content Include="Views\Advice\Index.cshtml" />
     <Content Include="Views\Advice\DisplayTemplates\QuestionViewModel.cshtml" />
   </ItemGroup>

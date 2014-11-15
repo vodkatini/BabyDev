@@ -30,13 +30,13 @@ namespace BabyDev.Web.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult _TopicsPartial()
+        public ActionResult _QuestionsPartial()
         {
-            var topics = this.Data.Topics.All()
-                .OrderBy(t => t.Title)
-                .Take(24)
+            var topics = this.Data.Questions.All()
+                .OrderBy(q => q.AskedOn)
+                .Take(10)
                 .Project()
-                .To<TopicViewModel>()
+                .To<QuestionViewModel>()
                 .ToList();
             return PartialView(topics);
         }

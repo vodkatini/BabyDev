@@ -1,0 +1,12 @@
+﻿@model List<BabyDev.Web.ViewModels.QuestionViewModel>
+
+<div class="well text-center">
+    <h3>@Html.ActionLink("User's Questions", "Index", "Advice", null, htmlAttributes: new { area = "" })</h3>
+    @foreach (var question in @Model)
+    {
+        <p>
+            @Html.ActionLink(question.Title, "Details", "Advice", new { id = question.Id }, htmlAttributes: new { area = "" })
+        </p>
+    }
+</div>
+

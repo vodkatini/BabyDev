@@ -1,0 +1,15 @@
+﻿@model BabyDev.Web.ViewModels.QuestionViewModel
+
+@section SideBarLeft
+{
+    @Html.Action("_QuestionsPartial")
+}
+
+@Html.DisplayForModel()
+
+@section SideBarRight
+{
+    @Html.Action("_CategoriesPartial")
+}
+
+

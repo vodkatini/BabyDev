@@ -53,12 +53,12 @@
 
                 this.Data.Questions.Add(question);
                 this.Data.SaveChanges();
-                return this.RedirectToAction("Question", new { id = question.Id });
+                return this.RedirectToAction("Details", new { id = question.Id });
             }
             return this.View(model);            
         }
 
-        public ActionResult Question(int id)
+        public ActionResult Details(int id)
         {
             var question = this.Data.Questions.All()
                 .Where(q => q.Id == id)
