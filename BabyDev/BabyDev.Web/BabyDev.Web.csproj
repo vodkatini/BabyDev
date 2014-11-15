@@ -240,6 +240,7 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\QuestionViewModel.cs" />
     <Compile Include="ViewModels\TopicViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -566,7 +567,10 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
     <Content Include="Views\Category\_CategoryTopicsPartial.cshtml" />
+    <Content Include="Views\Advice\Ask.cshtml" />
+    <Content Include="Views\Advice\Question.cshtml" />
     <Content Include="Views\Advice\Index.cshtml" />
+    <Content Include="Views\Advice\DisplayTemplates\QuestionViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

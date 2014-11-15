@@ -1,0 +1,14 @@
+﻿@model BabyDev.Web.ViewModels.QuestionViewModel
+<div class="row">
+    <p>
+        <strong>@Html.DisplayFor(m => m.Title)</strong>
+    </p>
+    <p>
+        @Html.DisplayFor(m => m.Body)
+    </p>
+    <p>
+        asked by: <strong>@Html.DisplayFor(m => m.Author.UserName)</strong>
+        on: @Html.DisplayFor(m => m.AskedOn)
+    </p>
+</div>
+<hr />

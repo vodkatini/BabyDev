@@ -13,14 +13,6 @@ namespace BabyDev.Web.ViewModels
         public string Title { get; set; }
 
         [DataType(DataType.MultilineText)]
-        public string Body { get; set; }
-
-        public string AuthorId { get; set; }
-
-        public virtual BabyDevUser Author { get; set; }
-
-        public DateTime AskedOn { get; set; }
-
-        public bool IsAnswered { get; set; }
+        public string Body { get; set; }        
     }
 }
