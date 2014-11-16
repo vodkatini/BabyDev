@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper.QueryableExtensions;
 using BabyDev.Data.Contracts;
 using BabyDev.Models;
 using BabyDev.Web.Controllers;
@@ -18,37 +19,40 @@ namespace BabyDev.Web.Areas.Child.Controllers
             : base(data)
         {
         }
-        // GET: Child/Profile
-        public ActionResult Index(int? relatedMonths)
+
+        public ActionResult Index()
         {
             var userId = this.GetUserId();
             var child = this.Data.Children.All().FirstOrDefault(c => c.ParentId == userId);
             if (child == null)
             {
-                    return RedirectToAction("Add");               
+                return RedirectToAction("Add");
             }
 
-            if (relatedMonths == null)
-            {
-                relatedMonths = (DateTime.Now - child.Born).Days / 30;
-            }
+            var childModel = AutoMapper.Mapper.Map<ChildViewModel>(child);
+            return View(childModel);
+        }
 
-            var topic = this.Data.Topics.All().FirstOrDefault(t => t.RelatedMonths == relatedMonths);
+        // GET: Child/Profile
+        public ActionResult Related(DateTime born)
+        {
+            var relatedMonths = (DateTime.Now - born).Days / 30;
+            var topics = this.Data.Topics.All().Where(t => t.RelatedMonths == relatedMonths).Project().To<TopicViewModel>();
 
-            var topicViewModel = new TopicViewModel();
+            //var topicViewModel = new TopicViewModel();
 
-            if (topic == null)
-            {
-                topicViewModel.Title = "Your Child is old enough to get a job!";
-                topicViewModel.Paragraphs = new HashSet<Paragraph>();
-            }
-            else
-            {
-                topicViewModel.Title = topic.Title;
-                topicViewModel.Paragraphs = topic.Paragraphs;
-            }
+            //if (topic == null)
+            //{
+            //    topicViewModel.Title = "Your Child is old enough to get a job!";
+            //    topicViewModel.Paragraphs = new HashSet<Paragraph>();
+            //}
+            //else
+            //{
+            //    topicViewModel.Title = topic.Title;
+            //    topicViewModel.Paragraphs = topic.Paragraphs;
+            //}
 
-            return View(topicViewModel);
+            return PartialView(topics);
         }
 
         public ActionResult Add()

@@ -500,8 +500,9 @@
     <Content Include="Areas\Child\Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Areas\Child\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Child\Views\Shared\EditorTemplates\Gender.cshtml" />
-    <Content Include="Areas\Child\Views\Profile\DisplayTemplates\TopicView.cshtml" />
-    <Content Include="Areas\Child\Views\Profile\DisplayTemplates\ChildTemplate.cshtml" />
+    <Content Include="Areas\Child\Views\Profile\DisplayTemplates\TopicViewModel.cshtml" />
+    <Content Include="Areas\Child\Views\Profile\DisplayTemplates\ChildViewModel.cshtml" />
+    <Content Include="Areas\Child\Views\Profile\Related.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

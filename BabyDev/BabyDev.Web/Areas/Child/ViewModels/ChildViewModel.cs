@@ -19,9 +19,11 @@ namespace BabyDev.Web.Areas.Child.ViewModels
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Born on: ")]
         public DateTime Born { get; set; }
 
         [Required]
+        [Display(Name = "Gender: ")]
         public Gender Gender { get; set; }
 
         public void CreateMappings(AutoMapper.IConfiguration configuration)
