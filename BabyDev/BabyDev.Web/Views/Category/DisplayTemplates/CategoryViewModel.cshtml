@@ -1,0 +1,6 @@
+﻿@model BabyDev.Web.ViewModels.CategoryViewModel
+
+<div class="col-md-4">
+    <h3>@Html.ActionLink(Model.Name, "Details", "Category", new { @id = @Model.Id }, null)</h3>
+        @Html.DisplayFor(m => m.Topics)
+</div>

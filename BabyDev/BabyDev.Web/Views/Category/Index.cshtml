@@ -6,10 +6,7 @@
     @Html.Action("_CategoriesPartial")
 }
 
-@foreach (var category in Model)
-{
-    <p>@category.Name</p>
-}
+@Html.DisplayFor(m => m)
 
 @section SideBarRight
 {

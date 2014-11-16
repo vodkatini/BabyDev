@@ -5,9 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using BabyDev.Data.Contracts;
 using BabyDev.Models;
-using BabyDev.Web.Areas.Child.ViewModels;
 using BabyDev.Web.Controllers;
-using BabyDev.Web.ViewModels;
+using BabyDev.Web.Areas.Child.ViewModels;
 using Microsoft.AspNet.Identity;
 
 namespace BabyDev.Web.Areas.Child.Controllers

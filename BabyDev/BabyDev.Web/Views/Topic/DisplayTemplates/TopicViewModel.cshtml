@@ -1,0 +1,9 @@
+﻿@model BabyDev.Web.ViewModels.TopicViewModel
+
+<div class="row">
+    <h3>@Html.ActionLink(Model.Title, "Details", "Topic", new { @id = @Model.Id }, null)</h3>
+    <h5>@Html.LabelFor(m => m.RelatedMonths): @Html.DisplayFor(m => m.RelatedMonths)</h5>
+
+    @Html.DisplayFor(m => m.Paragraphs)
+</div>
+

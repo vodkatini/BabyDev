@@ -220,6 +220,7 @@
     <Compile Include="Areas\Child\ViewModels\AddChildViewModel.cs" />
     <Compile Include="Areas\Child\Controllers\ProfileController.cs" />
     <Compile Include="Areas\Child\ViewModels\ChildViewModel.cs" />
+    <Compile Include="Areas\Child\ViewModels\TopicViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdviceController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -241,6 +242,7 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ParagraphViewModel.cs" />
     <Compile Include="ViewModels\QuestionViewModel.cs" />
     <Compile Include="ViewModels\TopicViewModel.cs" />
   </ItemGroup>
@@ -499,6 +501,7 @@
     <Content Include="Areas\Child\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Child\Views\Shared\EditorTemplates\Gender.cshtml" />
     <Content Include="Areas\Child\Views\Profile\DisplayTemplates\TopicView.cshtml" />
+    <Content Include="Areas\Child\Views\Profile\DisplayTemplates\ChildTemplate.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -575,6 +578,10 @@
     <Content Include="Views\Advice\Details.cshtml" />
     <Content Include="Views\Advice\Index.cshtml" />
     <Content Include="Views\Advice\DisplayTemplates\QuestionViewModel.cshtml" />
+    <Content Include="Views\Category\DisplayTemplates\CategoryViewModel.cshtml" />
+    <Content Include="Views\Category\DisplayTemplates\TopicViewModel.cshtml" />
+    <Content Include="Views\Topic\DisplayTemplates\ParagraphViewModel.cshtml" />
+    <Content Include="Views\Topic\DisplayTemplates\TopicViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
