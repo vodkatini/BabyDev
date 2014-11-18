@@ -69,5 +69,34 @@
                 .First();
             return View(question);
         }
+
+        public ActionResult InputAnswer(int id)
+        {
+            var question = new InputAnswerViewModel() { QuestionId = id };
+            return PartialView("InputAnswer", question);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InputAnswer(InputAnswerViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var userId = this.GetUserId();
+                var answer = new Answer
+                {                    
+                    Body = model.Body,
+                    AuthorId = userId,
+                    QuestionId = model.Id,
+                    AnsweredOn = DateTime.Now
+                };
+
+                this.Data.Answers.Add(answer);
+                this.Data.SaveChanges();
+                return this.RedirectToAction("Details", new { id = model.Id });
+            }
+            return this.View(model);
+        }
     }
 }

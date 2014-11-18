@@ -28,5 +28,7 @@
         public DateTime CreatedOn { get; set; }
 
         public bool IsAnswered { get; set; }
+
+        public virtual ICollection<AnswerViewModel> Answers { get; set; }
     }
 }

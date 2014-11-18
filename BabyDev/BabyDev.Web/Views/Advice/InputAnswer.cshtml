@@ -1,0 +1,18 @@
+﻿@model BabyDev.Web.ViewModels.InputAnswerViewModel
+
+@using (Html.BeginForm("InputAnswer", "Advice", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    
+    <div class="row">
+        <div class="form-group col-md-8">
+            @Html.EditorFor(m => m.Body, new { htmlAttributes = new { @class = "form-control", placeholder = "Your answer here..." } })
+        </div>        
+    </div>
+    <div class="row">
+        <div class="form-group col-md-8">
+            <input type="submit" value="Reply" class="btn btn-primary" />
+        </div>
+    </div>
+}

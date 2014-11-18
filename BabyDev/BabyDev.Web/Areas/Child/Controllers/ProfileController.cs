@@ -15,7 +15,7 @@ namespace BabyDev.Web.Areas.Child.Controllers
     [Authorize]
     public class ProfileController : BaseController
     {
-        public ProfileController(IBabyDevData data) 
+        public ProfileController(IBabyDevData data)
             : base(data)
         {
         }
@@ -57,8 +57,10 @@ namespace BabyDev.Web.Areas.Child.Controllers
 
         public ActionResult Add()
         {
+
             var child = new AddChildViewModel();
             child.Born = DateTime.Now;
+
             return View(child);
         }
 
@@ -76,6 +78,43 @@ namespace BabyDev.Web.Areas.Child.Controllers
                     ParentId = this.User.Identity.GetUserId()
                 };
                 this.Data.Children.Add(child);
+                this.Data.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            TempData["success"] = model.Name + " was successfully added";
+            return View(model);
+        }
+
+        public ActionResult Edit()
+        {
+            var parent = this.GetUserId();
+            var userChild = this.Data.Children.All().FirstOrDefault(c => c.ParentId == parent);
+            var child = new AddChildViewModel();
+            if (userChild != null)
+            {
+                child.Name = userChild.Name;
+                child.Gender = userChild.Gender;
+            }
+            else
+            {
+                child.Born = DateTime.Now;
+            }
+
+            return View(child);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(AddChildViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var parentId = this.GetUserId();
+                var child = this.Data.Children.All().First(c => c.ParentId == parentId);
+                child.Name = model.Name;
+                child.Gender = model.Gender;
+                
                 this.Data.SaveChanges();
 
                 return RedirectToAction("Index");

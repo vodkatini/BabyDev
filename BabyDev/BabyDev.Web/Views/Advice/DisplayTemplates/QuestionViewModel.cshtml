@@ -1,7 +1,7 @@
 ﻿@model BabyDev.Web.ViewModels.QuestionViewModel
 <div class="row">
     <p>
-        <strong>@Html.DisplayFor(m => m.Title)</strong>
+        <strong>@Html.ActionLink(Model.Title, "Details", "Advice", new { id = Model.Id }, htmlAttributes: new { area = "" })</strong>
     </p>
     <p>
         @Html.DisplayFor(m => m.Body)
@@ -10,5 +10,9 @@
         asked by: <strong>@Html.DisplayFor(m => m.Author.UserName)</strong>
         on: @Html.DisplayFor(m => m.CreatedOn)
     </p>
+</div>
+<div class="row">
+    <h4>Answers:</h4>
+    @Html.DisplayFor(m => m.Answers)
 </div>
 <hr />

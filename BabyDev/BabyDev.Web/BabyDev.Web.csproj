@@ -233,11 +233,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Helpers\ActionOutputCacheAttribute.cs" />
     <Compile Include="Infrastructure\Mapping\AutoMapperConfig.cs" />
     <Compile Include="Infrastructure\Mapping\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\AddQuestionViewModel.cs" />
+    <Compile Include="ViewModels\AnswerViewModel.cs" />
+    <Compile Include="ViewModels\InputAnswerViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -503,6 +506,7 @@
     <Content Include="Areas\Child\Views\Profile\DisplayTemplates\TopicViewModel.cshtml" />
     <Content Include="Areas\Child\Views\Profile\DisplayTemplates\ChildViewModel.cshtml" />
     <Content Include="Areas\Child\Views\Profile\Related.cshtml" />
+    <Content Include="Areas\Child\Views\Profile\Edit.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -583,11 +587,14 @@
     <Content Include="Views\Category\DisplayTemplates\TopicViewModel.cshtml" />
     <Content Include="Views\Topic\DisplayTemplates\ParagraphViewModel.cshtml" />
     <Content Include="Views\Topic\DisplayTemplates\TopicViewModel.cshtml" />
+    <Content Include="Views\Advice\InputAnswer.cshtml" />
+    <Content Include="Views\Advice\DisplayTemplates\AnswerViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Admin\" />
     <Folder Include="Areas\Administration\Views\KendoGridAdministration\" />
+    <Folder Include="Views\Advice\EditorTemplates\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\SideBar\" />
   </ItemGroup>

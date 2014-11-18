@@ -18,8 +18,7 @@
             : base(data)
         {
         }
-
-        [OutputCache(Duration = 10 * 60)]
+        
         public ActionResult Index()
         {
             var topics = this.Data.Topics.All()

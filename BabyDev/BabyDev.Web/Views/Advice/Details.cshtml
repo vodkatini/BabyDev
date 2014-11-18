@@ -7,6 +7,11 @@
 
 @Html.DisplayForModel()
 
+@if (this.User.IsInRole("Expert"))
+{
+    @Html.Action("InputAnswer", "Advice", new { @id = @Model.Id })
+}
+
 @section SideBarRight
 {
     @Html.Action("_QuestionsPartial")
